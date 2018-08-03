@@ -16,10 +16,10 @@ public class Screen extends Canvas {
 	private int[] pixels;
 	private static final long serialVersionUID = 1L;
 	
-	public Screen(int WIDTH, int HEIGHT) {
-		size = new Dimension(WIDTH,HEIGHT);
-		width = size.width;
-		height = size.height;
+	public Screen(int width, int height) {
+		size = new Dimension(width, height);
+		this.width = size.width;
+		this.height = size.height;
 		image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();
 	}
@@ -39,8 +39,12 @@ public class Screen extends Canvas {
 		bs.show();
 	}
 	
-	
 	public void setPixel(int x, int y, int red, int green, int blue) {
+		//Test method.
 		pixels[width * y + x] = (red<<16) | (green<<8) | blue;
+	}
+	
+	public int[] getPixels() {
+		return pixels;
 	}
 }

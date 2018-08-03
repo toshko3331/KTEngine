@@ -7,12 +7,15 @@ import javax.swing.JFrame;
 
 public class Game implements Runnable{
 
-	private static final int  WIDTH = 800;
-	private static final int  HEIGHT = 800;
+	//Aspect ratio here is 4:3
+	private static final float SCALE = 1.5f;
+	private static final int  WIDTH = (int)(800 * SCALE);
+	private static final int  HEIGHT = (int)(600 * SCALE);
 	
 	private boolean running = false;
 	private Thread thread;
 	private Screen screen;
+	private Camera camera;
 	
 	public Game() {
 
@@ -26,10 +29,12 @@ public class Game implements Runnable{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		frame.setLayout(new BorderLayout());
-		frame.add(screen,BorderLayout.CENTER);
+		frame.add(screen, BorderLayout.CENTER);
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
+		
+		camera = new Camera(WIDTH, HEIGHT, 10, 10, screen.getPixels());
 	}
 	
 	public synchronized void start() {
@@ -48,17 +53,29 @@ public class Game implements Runnable{
 	}
 	
 	public void run() {
-		int color1 = (int)Math.floor(Math.random() * 255);
-		int color2 = (int)Math.floor(Math.random() * 255);
-		int color3 = (int)Math.floor(Math.random() * 255);
+		//Beautiful, clean, testing code below Kappa.
+
+		ViewableGameObject test = new ViewableGameObject(new Sprite("res/beauty.png"));
+		ViewableGameObject test32 = new ViewableGameObject(new Sprite("res/32x32.png"));
+		ViewableGameObject[] testarr = new ViewableGameObject[2];
+		testarr[0] = test;
+		testarr[1] = test32;
+
+		int red = (int)Math.floor(Math.random() * 255);
+		int green = (int)Math.floor(Math.random() * 255);
+		int blue = (int)Math.floor(Math.random() * 255);
+
 		while(running) {
-			screen.render();
-			tick();
+			//draws the randomly chosen background color.
 			for(int y = 0; y < HEIGHT;y++) {
 				for(int x = 0; x < WIDTH;x++) {
-					screen.setPixel(x,y,color1,color2,color3);
+					screen.setPixel(x, y, red, green, blue);
 				}
 			}
+			camera.display(testarr);
+			screen.render();
+			tick();
+			
 		}
 	}	
 	
