@@ -19,8 +19,12 @@ public class InputHandler implements KeyListener{
 			return isPressed;
 		}
 		
-		public void toggle(){
-			isPressed = !isPressed;
+		public void press(){
+			isPressed = true;
+		}
+		
+		public void depress(){
+			isPressed = false;
 		}
 		
 		public int getVK() {
@@ -88,82 +92,82 @@ public class InputHandler implements KeyListener{
 	public void keyPressed(KeyEvent event) {
 		switch(event.getKeyCode()) {
 			case KeyEvent.VK_A:
-				a.toggle();
+				a.press();
 				break;
 			case KeyEvent.VK_B:
-				b.toggle();
+				b.press();
 				break;
 			case KeyEvent.VK_C:
-				c.toggle();
+				c.press();
 				break;
 			case KeyEvent.VK_D:
-				d.toggle();
+				d.press();
 				break;
 			case KeyEvent.VK_E:
-				e.toggle();
+				e.press();
 				break;
 			case KeyEvent.VK_F:
-				f.toggle();
+				f.press();
 				break;
 			case KeyEvent.VK_G:
-				g.toggle();
+				g.press();
 				break;
 			case KeyEvent.VK_H:
-				h.toggle();
+				h.press();
 				break;
 			case KeyEvent.VK_I:
-				i.toggle();
+				i.press();
 				break;
 			case KeyEvent.VK_J:
-				j.toggle();
+				j.press();
 				break;
 			case KeyEvent.VK_K:
-				k.toggle();
+				k.press();
 				break;
 			case KeyEvent.VK_L:
-				l.toggle();
+				l.press();
 				break;
 			case KeyEvent.VK_M:
-				m.toggle();
+				m.press();
 				break;
 			case KeyEvent.VK_N:
-				n.toggle();
+				n.press();
 				break;
 			case KeyEvent.VK_O:
-				o.toggle();
+				o.press();
 				break;
 			case KeyEvent.VK_P:
-				p.toggle();
+				p.press();
 				break;
 			case KeyEvent.VK_Q:
-				q.toggle();
+				q.press();
 				break;
 			case KeyEvent.VK_R:
-				r.toggle();
+				r.press();
 				break;
 			case KeyEvent.VK_S:
-				s.toggle();
+				s.press();
 				break;
 			case KeyEvent.VK_T:
-				t.toggle();
+				t.press();
 				break;
 			case KeyEvent.VK_U:
-				u.toggle();
+				u.press();
 				break;
 			case KeyEvent.VK_V:
-				v.toggle();
+				v.press();
 				break;
 			case KeyEvent.VK_W:
-				w.toggle();
+				w.press();
 				break;
 			case KeyEvent.VK_X:
-				x.toggle();
+				x.press();
 				break;
 			case KeyEvent.VK_Y:
-				y.toggle();
+				y.press();
 				break;
 			case KeyEvent.VK_Z:
-				z.toggle();
+				z.press();
 				break;
 		}
 	}
@@ -172,88 +176,89 @@ public class InputHandler implements KeyListener{
 	public void keyReleased(KeyEvent event) {
 		switch(event.getKeyCode()) {
 			case KeyEvent.VK_A:
-				a.toggle();
+				a.depress();
 				break;
 			case KeyEvent.VK_B:
-				b.toggle();
+				b.depress();
 				break;
 			case KeyEvent.VK_C:
-				c.toggle();
+				c.depress();
 				break;
 			case KeyEvent.VK_D:
-				d.toggle();
+				d.depress();
 				break;
 			case KeyEvent.VK_E:
-				e.toggle();
+				e.depress();
 				break;
 			case KeyEvent.VK_F:
-				f.toggle();
+				f.depress();
 				break;
 			case KeyEvent.VK_G:
-				g.toggle();
+				g.depress();
 				break;
 			case KeyEvent.VK_H:
-				h.toggle();
+				h.depress();
 				break;
 			case KeyEvent.VK_I:
-				i.toggle();
+				i.depress();
 				break;
 			case KeyEvent.VK_J:
-				j.toggle();
+				j.depress();
 				break;
 			case KeyEvent.VK_K:
-				k.toggle();
+				k.depress();
 				break;
 			case KeyEvent.VK_L:
-				l.toggle();
+				l.depress();
 				break;
 			case KeyEvent.VK_M:
-				m.toggle();
+				m.depress();
 				break;
 			case KeyEvent.VK_N:
-				n.toggle();
+				n.depress();
 				break;
 			case KeyEvent.VK_O:
-				o.toggle();
+				o.depress();
 				break;
 			case KeyEvent.VK_P:
-				p.toggle();
+				p.depress();
 				break;
 			case KeyEvent.VK_Q:
-				q.toggle();
+				q.depress();
 				break;
 			case KeyEvent.VK_R:
-				r.toggle();
+				r.depress();
 				break;
 			case KeyEvent.VK_S:
-				s.toggle();
+				s.depress();
 				break;
 			case KeyEvent.VK_T:
-				t.toggle();
+				t.depress();
 				break;
 			case KeyEvent.VK_U:
-				u.toggle();
+				u.depress();
 				break;
 			case KeyEvent.VK_V:
-				v.toggle();
+				v.depress();
 				break;
 			case KeyEvent.VK_W:
-				w.toggle();
+				w.depress();
 				break;
 			case KeyEvent.VK_X:
-				x.toggle();
+				x.depress();
 				break;
 			case KeyEvent.VK_Y:
-				y.toggle();
+				y.depress();
 				break;
 			case KeyEvent.VK_Z:
-				z.toggle();
+				z.depress();
 				break;
 		}
 	}
 
 	@Override
-	public void keyTyped(KeyEvent e) {
+	public void keyTyped(KeyEvent event) {
+
 	}
 }
 
