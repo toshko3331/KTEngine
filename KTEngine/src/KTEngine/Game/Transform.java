@@ -25,4 +25,10 @@ public class Transform {
 		this.rot = rot;
 		this.scale = scale;
 	}
+	
+	public void updatePos(float newX, float newY, float newZ) {
+		pos.x = newX;
+		pos.y = newY;
+		pos.z = newZ;
+	}
 }

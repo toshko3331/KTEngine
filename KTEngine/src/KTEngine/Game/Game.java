@@ -2,6 +2,8 @@ package KTEngine.Game;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 
@@ -16,6 +18,7 @@ public class Game implements Runnable{
 	private Thread thread;
 	private Screen screen;
 	private Camera camera;
+	private InputHandler inputHandler;
 	
 	public Game() {
 
@@ -35,6 +38,8 @@ public class Game implements Runnable{
 		frame.setVisible(true);
 		
 		camera = new Camera(WIDTH, HEIGHT, 10, 10, screen.getPixels());
+		inputHandler = new InputHandler();
+		screen.addKeyListener(inputHandler);
 	}
 	
 	public synchronized void start() {
@@ -75,11 +80,25 @@ public class Game implements Runnable{
 			camera.display(testarr);
 			screen.render();
 			tick();
-			
 		}
 	}	
 	
 	public void tick() {
+		float xStep = 0.011f;
+		float yStep = 0.011f;
+
+		if(inputHandler.w.isPressed()) {
+			camera.updatePos(camera.getTransform().pos.x, camera.getTransform().pos.y + yStep, camera.getTransform().pos.z);
+		}
+		if(inputHandler.s.isPressed()) {
+			camera.updatePos(camera.getTransform().pos.x, camera.getTransform().pos.y - yStep, camera.getTransform().pos.z);
+		}
+		if(inputHandler.a.isPressed()) {
+			camera.updatePos(camera.getTransform().pos.x - xStep, camera.getTransform().pos.y, camera.getTransform().pos.z);
+		}
+		if(inputHandler.d.isPressed()) {
+			camera.updatePos(camera.getTransform().pos.x + xStep, camera.getTransform().pos.y, camera.getTransform().pos.z);
+		}
 		//TODO: Game code.
 	}
 

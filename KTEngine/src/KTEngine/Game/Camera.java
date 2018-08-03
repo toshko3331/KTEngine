@@ -8,6 +8,8 @@ public class Camera extends GameObject{
 	private Rectangle worldSpaceRectangle;
 	private int viewPortWidth;  //In pixels.
 	private int viewPortHeight; //In pixels.
+	private float gameUnitsWidth;
+	private float gameUnitsHeight;
 	private int[] displaySurface;
 	
 	public Camera(int viewPortWidth, int viewPortHeight, float gameUnitsWidth, float gameUnitsHeight, int[] displaySurface) {
@@ -15,11 +17,9 @@ public class Camera extends GameObject{
 		this.viewPortWidth = viewPortWidth;
 		this.viewPortHeight = viewPortHeight;
 		this.displaySurface = displaySurface;
-		
-		Vector2f tl = new Vector2f(transform.pos.x - gameUnitsWidth/2, transform.pos.y + gameUnitsHeight/2); 
-		Vector2f br = new Vector2f(transform.pos.x + gameUnitsWidth/2, transform.pos.y - gameUnitsHeight/2);
-		worldSpaceRectangle = new Rectangle(tl, br);
-
+		this.gameUnitsWidth = gameUnitsWidth;
+		this.gameUnitsHeight = gameUnitsHeight;
+		updateRec();
 	}
 	
 	public Camera(int viewPortWidth, int viewPortHeight, int[] displaySurface) {
@@ -72,5 +72,16 @@ public class Camera extends GameObject{
 		float yStep = worldSpaceRectangle.getHeight()/viewPortHeight;
 
 		return new Vector2f(xStep, yStep);
-	}	
+	}
+	
+	public void updatePos(float newX, float newY, float newZ) {
+		transform.updatePos(newX, newY, newZ);
+		updateRec();
+	}
+	
+	private void updateRec() {
+		Vector2f tl = new Vector2f(transform.pos.x - gameUnitsWidth/2, transform.pos.y + gameUnitsHeight/2); 
+		Vector2f br = new Vector2f(transform.pos.x + gameUnitsWidth/2, transform.pos.y - gameUnitsHeight/2);
+		worldSpaceRectangle = new Rectangle(tl, br);
+	}
 }
