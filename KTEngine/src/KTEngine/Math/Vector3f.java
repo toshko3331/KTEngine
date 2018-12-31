@@ -24,8 +24,8 @@ public class Vector3f {
 		return new Vector3f(x * scalar, y * scalar, z * scalar);	
 	}
 	
-	public Vector3f dotProduct(Vector3f multVec) {
-		return new Vector3f(x * multVec.x, y * multVec.y, z * multVec.z);
+	public float dotProduct(Vector3f multVec) {
+		return (x*multVec.x) + (y*multVec.y) + (z*multVec.z);
 	}
 	
 }

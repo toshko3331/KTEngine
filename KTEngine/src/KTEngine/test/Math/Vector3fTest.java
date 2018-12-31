@@ -32,8 +32,6 @@ class Vector3fTest {
 		Assert.assertEquals(new Vector3f(0.0f, 40.0f, 25.6f).y, vec1.scalarMult(8).y, 0.000001f);
 		Assert.assertEquals(new Vector3f(0.0f, 40.0f, 25.6f).z, vec1.scalarMult(8).z, 0.000001f);
 		//Vector3f.dotProduct();
-		Assert.assertEquals(new Vector3f(0.0f, 10.0f, 156.8f).x, vec1.dotProduct(vec2).x, 0.000001f);
-		Assert.assertEquals(new Vector3f(0.0f, 10.0f, 156.8f).y, vec1.dotProduct(vec2).y, 0.000001f);
-		Assert.assertEquals(new Vector3f(0.0f, 10.0f, 156.8f).z, vec1.dotProduct(vec2).z, 0.000001f);
+		Assert.assertEquals(166.8f, vec1.dotProduct(vec2), 0.000001f);
 	}
 }

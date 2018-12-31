@@ -22,7 +22,7 @@ public class Vector2f {
 		return new Vector2f(x * scalar, y * scalar);	
 	}
 	
-	public Vector2f dotProduct(Vector2f multVec) {
-		return new Vector2f(x * multVec.x, y * multVec.y);
+	public float dotProduct(Vector2f multVec) {
+		return (x*multVec.x)+(y*multVec.y);
 	}
 }

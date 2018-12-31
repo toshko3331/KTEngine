@@ -28,8 +28,7 @@ class Vector2fTest {
 		Assert.assertEquals(new Vector2f(0.0f, 40.0f).x, vec1.scalarMult(8).x, 0.000001f);
 		Assert.assertEquals(new Vector2f(0.0f, 40.0f).y, vec1.scalarMult(8).y, 0.000001f);
 		//Vector2f.dotProduct();
-		Assert.assertEquals(new Vector2f(0.0f, 10.0f).x, vec1.dotProduct(vec2).x, 0.000001f);
-		Assert.assertEquals(new Vector2f(0.0f, 10.0f).y, vec1.dotProduct(vec2).y, 0.000001f);
+		Assert.assertEquals(10.0f, vec1.dotProduct(vec2), 0.000001f);
 	}
 
 }
