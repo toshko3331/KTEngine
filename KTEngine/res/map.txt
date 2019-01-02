@@ -1,0 +1,6 @@
+ffffff:empty
+22B14C:res/grass.png
+00A2E8:res/water.png
+FFF200:res/sand.png
+3f48cc:res/dim.png
+b97a57:res/worm.png
