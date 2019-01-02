@@ -1,34 +1,33 @@
 package KTEngine.Game;
 
-import KTEngine.Math.Vector3f;
+import KTEngine.Math.Vector2;
 
 public class Transform {
 
-	public Vector3f pos;
-	public Vector3f rot;
-	public Vector3f scale;
+	public Vector2 pos;
+	public Vector2 rot;
+	public Vector2 scale;
 	
-	public Transform(Vector3f pos) {
+	public Transform(Vector2 pos) {
 		this.pos = pos;
-		this.rot = new Vector3f(0,0,0);
-		this.rot = new Vector3f(1,1,1);
+		this.rot = new Vector2(0,0);
+		this.rot = new Vector2(1,1);
 	}
 	
-	public Transform(Vector3f pos, Vector3f rot) {
+	public Transform(Vector2 pos, Vector2 rot) {
 		this.pos = pos;
 		this.rot = rot;
-		this.rot = new Vector3f(1,1,1);
+		this.rot = new Vector2(1,1);
 	}
 	
-	public Transform(Vector3f pos, Vector3f rot, Vector3f scale) {
+	public Transform(Vector2 pos, Vector2 rot, Vector2 scale) {
 		this.pos = pos;
 		this.rot = rot;
 		this.scale = scale;
 	}
 	
-	public void updatePos(float newX, float newY, float newZ) {
+	public void updatePos(double newX, double newY) {
 		pos.x = newX;
 		pos.y = newY;
-		pos.z = newZ;
 	}
 }

@@ -1,6 +1,6 @@
 package KTEngine.Game;
 
-import KTEngine.Math.Vector3f;
+import KTEngine.Math.Vector2;
 
 public class GameObject {
 
@@ -11,7 +11,7 @@ public class GameObject {
 	}
 	
 	public GameObject() {
-		transform = new Transform(new Vector3f(0, 0, 0));
+		transform = new Transform(new Vector2(0, 0));
 	}
 	
 	protected Transform getTransform() {

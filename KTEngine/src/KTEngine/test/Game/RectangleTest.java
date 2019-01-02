@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import KTEngine.Game.Rectangle;
-import KTEngine.Math.Vector2f;
+import KTEngine.Math.Vector2;
 
 class RectangleTest {
 
@@ -33,22 +33,22 @@ class RectangleTest {
 		float mTLY = 1;
 		float mBRX = 1;
 		float mBRY = -1;
-		mainRect = new Rectangle(new Vector2f(mTLX, mTLY),new Vector2f(mBRX, mBRY));
+		mainRect = new Rectangle(new Vector2(mTLX, mTLY),new Vector2(mBRX, mBRY));
 
-		TLintnx = new Rectangle(new Vector2f(mTLX + 1, mTLY - 1), new Vector2f(mBRX + 1, mBRY - 1));
-		TRintnx = new Rectangle(new Vector2f(mTLX - 1, mTLY - 1), new Vector2f(mBRX - 1, mBRY - 1));
-		BLintnx = new Rectangle(new Vector2f(mTLX + 1, mTLY + 1), new Vector2f(mBRX + 1, mBRY + 1));
-		BRintnx = new Rectangle(new Vector2f(mTLX - 1, mTLY + 1), new Vector2f(mBRX - 1, mBRY + 1));
+		TLintnx = new Rectangle(new Vector2(mTLX + 1, mTLY - 1), new Vector2(mBRX + 1, mBRY - 1));
+		TRintnx = new Rectangle(new Vector2(mTLX - 1, mTLY - 1), new Vector2(mBRX - 1, mBRY - 1));
+		BLintnx = new Rectangle(new Vector2(mTLX + 1, mTLY + 1), new Vector2(mBRX + 1, mBRY + 1));
+		BRintnx = new Rectangle(new Vector2(mTLX - 1, mTLY + 1), new Vector2(mBRX - 1, mBRY + 1));
 		
-		TLandTRintnx = new Rectangle(new Vector2f(mTLX + 0.5f, mTLY - 1), new Vector2f(mBRX - 0.5f, mBRY - 1));
-		BLandBRintnx = new Rectangle(new Vector2f(mTLX + 0.5f, mTLY + 1), new Vector2f(mBRX - 0.5f, mTLY - 1));
-		TLandBLintnx = new Rectangle(new Vector2f(mTLX + 1, mTLY - 0.5f), new Vector2f(mBRX + 1, mBRY + 0.5f));
-		TRandBRintnx = new Rectangle(new Vector2f(mTLX - 1, mTLY - 0.5f), new Vector2f(mBRX - 1, mBRY + 0.5f));
+		TLandTRintnx = new Rectangle(new Vector2(mTLX + 0.5f, mTLY - 1), new Vector2(mBRX - 0.5f, mBRY - 1));
+		BLandBRintnx = new Rectangle(new Vector2(mTLX + 0.5f, mTLY + 1), new Vector2(mBRX - 0.5f, mTLY - 1));
+		TLandBLintnx = new Rectangle(new Vector2(mTLX + 1, mTLY - 0.5f), new Vector2(mBRX + 1, mBRY + 0.5f));
+		TRandBRintnx = new Rectangle(new Vector2(mTLX - 1, mTLY - 0.5f), new Vector2(mBRX - 1, mBRY + 0.5f));
 		
-		circumscribedRect = new Rectangle(new Vector2f(mTLX + 0.5f, mTLY - 0.5f), new Vector2f(mBRX - 0.5f, mBRY + 0.5f));
+		circumscribedRect = new Rectangle(new Vector2(mTLX + 0.5f, mTLY - 0.5f), new Vector2(mBRX - 0.5f, mBRY + 0.5f));
 	
-		outsideHorizontal = new Rectangle(new Vector2f(mTLX - 1, mTLY - 0.5f), new Vector2f(mBRX + 1, mBRY + 0.5f));
-		outsideVertical = new Rectangle(new Vector2f(mTLX + 0.5f, mTLY + 1), new Vector2f(mBRX - 0.5f, mBRY - 1));
+		outsideHorizontal = new Rectangle(new Vector2(mTLX - 1, mTLY - 0.5f), new Vector2(mBRX + 1, mBRY + 0.5f));
+		outsideVertical = new Rectangle(new Vector2(mTLX + 0.5f, mTLY + 1), new Vector2(mBRX - 0.5f, mBRY - 1));
 		
 	}
 	

@@ -15,14 +15,15 @@ public class Sprite {
 	private int[] texels;
 	private int width;
 	private int height;
+	private int area;
 	private String imagePath;
-	private float worldUnitsToPixelRatio; // No setter for now because if it changes from the 
+	private double worldUnitsToPixelRatio; // No setter for now because if it changes from the 
 										// default the Sprite's world space rectangle needs to be recalculated. 
 										// A system that invalidates the rectangle and forces a recalculation in the  
 										// ViewableGameObject class needs to be implemented first.
 	
-	public Sprite(String imagePath) {
-		worldUnitsToPixelRatio = 1.0f / 100.0f; //For every one world unit, there are 100 pixels.
+	public Sprite(String imagePath, double worldUnitsToPixelRatio) {
+		this.worldUnitsToPixelRatio = worldUnitsToPixelRatio; //For every one world unit, there are 100 pixels.
 		this.imagePath = imagePath;
 		try {
 			//Reason for not loading it directly to content is because the 
@@ -41,13 +42,14 @@ public class Sprite {
 		}
 		width = content.getWidth();
 		height = content.getHeight();
+		area = width * height;
 	}
 	
 	public BufferedImage getImage() {
 		return content;
 	}
 	
-	public float getWorldUnitsToPixelRatio(){
+	public double getWorldUnitsToPixelRatio(){
 		return worldUnitsToPixelRatio;
 	}
 	
@@ -68,7 +70,11 @@ public class Sprite {
 	}
 	
 	public int getTexel(int x, int y) {
-		return texels[width * y + x];
+		int index = width * y + x;
+		if(index >= area ){ // Do this check to prevent out of bounds that occasionally happens because of floating point imprecision I think.
+			return texels[area-1];
+		}
+		return texels[index];
 	}
 	
 	public String getImagePath() {
